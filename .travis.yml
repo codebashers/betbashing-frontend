@@ -9,6 +9,10 @@ cache:
   directories:
     - node_modules
 
+addons:
+  code_climate:
+    repo_token: 076ae453f28ec9a26fd2b11a6d5cf08036511e5b04ab70cc519de7c6b7d580ab
+
 before_install:
   - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
   - "npm config set spin false"
@@ -21,3 +25,6 @@ install:
 
 script:
   - npm test
+
+  after_script:
+    - codeclimate-test-reporter < coverage-report.dat
