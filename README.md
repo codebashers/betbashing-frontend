@@ -3,6 +3,7 @@
 [![Code Climate](https://codeclimate.com/github/codebashers/betbashing-frontend/badges/gpa.svg)](https://codeclimate.com/github/codebashers/betbashing-frontend) 
 [![Test Coverage](https://codeclimate.com/github/codebashers/betbashing-frontend/badges/coverage.svg)](https://codeclimate.com/github/codebashers/betbashing-frontend/coverage)
 [![devDependency Status](https://david-dm.org/codebashers/betbashing-frontend/dev-status.svg)](https://david-dm.org/codebashers/betbashing-frontend#info=devDependencies)
+[![Build Status](https://travis-ci.org/codebashers/betbashing-frontend.svg)](https://travis-ci.org/codebashers/betbashing-frontend)
 
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
