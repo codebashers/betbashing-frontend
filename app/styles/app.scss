@@ -1,0 +1,258 @@
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+body {
+padding: 25px;
+}
+
+
+.page--matchday {
+max-width: 680px;
+margin: 0 auto;
+}
+
+.card.match {
+width: 100%;
+}
+
+.match__header {
+background: #fafafa !important;
+}
+
+.ui.card {
+margin-bottom: 50px;
+}
+
+.match__header .teamname {
+text-overflow: ellipsis;
+overflow: hidden;
+width: -webkit-calc(100% - 50px);
+display: inline-block;
+}
+
+.match__bets {
+text-align: center;
+}
+
+
+
+span.score,
+span.teamname {
+vertical-align: middle;
+}
+
+span.score {
+font-size: 28px;
+background-color: #fff;
+padding: 1px 8px 2px;
+border: 1px solid #ddd;
+border-radius: 5px;
+}
+
+span.dots {
+margin-top: -11px;
+display: inline-block;
+vertical-align: middle;
+}
+
+span.score.live .dots {
+-webkit-animation: live 2s infinite; /* Chrome, Safari, Opera */
+animation: live 2s infinite;
+-webkit-animation-timing-function: ease-in-out;
+animation-timing-function: ease-in-out;
+}
+
+span.teamname {
+font-weight: 600;
+font-size: 16px;
+}
+
+
+input.new-bet__score {
+width: 50px;
+font-size: 22px !important;
+text-align: center !important;
+padding-left: 0 !important;
+padding-right: 0 !important;
+}
+
+.versus {
+font-size: 24px;
+margin: 0 5px;
+vertical-align: middle;
+margin-top: -20px;
+display: inline-block;
+}
+
+.bet.hit .avatar {
+box-shadow: 0 0 0 2px #44AF16;
+border: 2px solid #fff;
+}
+
+.bet.hit .header {
+color: #44AF16 !important;
+}
+
+.bet.tendency .avatar {
+box-shadow: 0 0 0 2px #E29A09;
+border: 2px solid #fff;
+}
+
+.bet.tendency .header {
+color: #E29A09 !important;
+}
+
+.bet.lost .avatar {
+}
+
+.bet.lost .header {
+color: #999 !important;
+}
+
+.flex-container {
+display: -webkit-flex; /* Safari */
+display: flex;
+-webkit-align-items: center;
+         align-items: center;
+height: 30px;
+}
+
+
+.flex-container > div {
+-webkit-flex: 1;
+        flex: 1;
+white-space: nowrap;
+}
+
+.flex-container > div:first-child,
+.flex-container > div:last-child {
+/*flex-grow: 1;*/
+}
+
+.flex-container > div.score {
+max-width: 80px;
+}
+
+.match-events {
+padding: 25px 0 !important;
+}
+
+.match-events .flex-container > div.score {
+max-width: 38px;
+}
+
+.match-events .flex-container > div.score:after {
+content: "";
+display: inline-block;
+width: 10px;
+height: 10px;
+margin-top: 1px;
+border-radius: 100px;
+background: #55C13D;
+}
+
+.match-events .flex-container > div.score:before {
+content: "";
+position: absolute;
+transform: translateX(-50%);
+left: 50%;
+margin-top: 5px;
+display: inline-block;
+width: 2px;
+height: 30px;
+background: #55C13D;
+}
+
+.fulltime {
+text-align: center;
+background: #556D8C;
+max-width: 34px;
+color: #fff;
+margin-top: 10px;
+border-radius: 100px;
+}
+
+.icon-wrap {
+display: inline-block;
+width: 16px;
+text-align: center;
+}
+
+.icon-wrap i {
+margin: 0;
+}
+
+.image.label img {
+vertical-align: top !important;
+}
+
+
+.club-logo {
+vertical-align: middle;
+max-width: 36px;
+max-height: 24px;
+margin: 0 10px;
+}
+
+i[class*="card"]:before,
+i.yellowred:before,
+i.yellowred:after {
+content: "";
+display: inline-block;
+width: 10px;
+height: 14px;
+vertical-align: text-top;
+border-radius: 2px;
+}
+
+i.yellowcard:before,
+i.yellowred:before {
+background: #F5F51D !important;
+border: 1px solid #C1C123;
+}
+
+i.redcard:before,
+i.yellowred:after {
+background: #FF7B7B !important;
+border: 1px solid #AB5C5A;
+}
+
+i.yellowred:after {
+margin: -3px 0 0 -6px;
+}
+
+i.goal:before {
+content: "\f1e3";
+}
+
+.event-result {
+color: #aaa;
+}
+
+.player-name {
+margin: 0 3px;
+}
+
+
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes live {
+    0%   {color: red;}
+    50%   {color: transparent;}
+    100% {color: red;}
+}
+
+/* Standard syntax */
+@keyframes live {
+  0%   {color: red;}
+  50%   {color: transparent;}
+  100% {color: red;}
+}

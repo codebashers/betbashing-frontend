@@ -1,0 +1,92 @@
+<div class="page--matchday">
+
+
+  <div class="ui breadcrumb">
+    <a class="section">Leagues</a>
+    <span class="divider">/</span>
+    <a class="section">
+      <img class="club-logo" src="/logos/{{model.matches.firstObject.match_comp}}.svg.png" alt="">
+      Premier League
+    </a>
+    <span class="divider">/</span>
+    <a class="section">2015/2016</a>
+    <span class="divider">/</span>
+    <div class="active section">{{model.id}}</div>
+  </div>
+
+
+  {{#each model.matches as |match|}}
+
+    <div class="ui card match">
+
+      <div class="content match__header">
+
+        <div class="flex-container">
+          <div class="" style="text-align:right">
+            <span class="teamname">{{match.match_localteam_name}}</span>
+            <img class="club-logo" src="/logos/{{match.match_localteam}}.svg.png" alt="">
+          </div>
+          <div class="score" style="text-align:center;">
+            <span class="score {{if (not-eq match.match_status 'FT') 'live'}}">
+
+              {{match.match_localteam_score}} <span class="dots">:</span> {{match.match_visitorteam_score}}
+            </span>
+          </div>
+          <div class="">
+            <img class="club-logo" src="logos/{{match.match_visitorteam}}.svg.png" alt="">
+            <span class="teamname">{{match.match_visitorteam_name}}</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="content match-events">
+
+        {{#each match.events as |event|}}
+          <div class="flex-container">
+            <div class="" style="text-align:right">
+              {{#if (eq event.event_team 'localteam')}}
+                {{#if (eq event.event_type 'goal')}}
+                  <span class="event-result">{{event.event_result}}</span>
+                {{/if}}
+                <span class="player-name">{{event.event_player}}</span>
+                <div class="icon-wrap"><i class="icon {{event.event_type}}"></i></div>
+              {{/if}}
+              {{#if (eq event.event_team 'visitorteam')}}
+                {{event.event_minute}}'
+              {{/if}}
+            </div>
+            <div class="score" style="text-align:center;">
+
+            </div>
+            <div class="">
+              {{#if (eq event.event_team 'localteam')}}
+                {{event.event_minute}}'
+              {{/if}}
+              {{#if (eq event.event_team 'visitorteam')}}
+                <div class="icon-wrap"><i class="icon {{event.event_type}}"></i></div>
+                <span class="player-name">{{event.event_player}}</span>
+                {{#if (eq event.event_type 'goal')}}
+                  <span class="event-result">{{event.event_result}}</span>
+                {{/if}}
+              {{/if}}
+            </div>
+          </div>
+        {{/each}}
+
+        {{#if (eq match.match_status 'FT')}}
+          <div class="flex-container">
+            <div></div>
+            <div class="fulltime">FT</div>
+            <div></div>
+          </div>
+        {{/if}}
+
+      </div>
+
+    </div>
+
+  {{/each}}
+
+
+</div>
