@@ -2,6 +2,12 @@ module.exports = function(app) {
   var express = require('express');
   var matchRouter = express.Router();
 
+  // var matches = Ember.$.getJSON('http://football-api.com/api/?Action=fixtures&APIKey=67303e2d-5622-b3e1-139f3f48303d&comp_id=1204&match_date=15.08.2015');
+  //
+  // var json_obj = JSON.parse(matches);
+  //
+  // alert(json_obj);
+
   matchRouter.get('/', function(req, res) {
     res.send({
       'matches': [
@@ -30,7 +36,8 @@ module.exports = function(app) {
             20088177,
             20088178,
             20088179
-          ]
+          ],
+          "bets": [1, 2, 3, 4]
         }
       ]
     });
@@ -67,7 +74,8 @@ module.exports = function(app) {
           20088177,
           20088178,
           20088179
-        ]
+        ],
+        "bets": [1, 2, 3, 4]
       }
     });
   });

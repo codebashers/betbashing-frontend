@@ -84,6 +84,66 @@
 
       </div>
 
+      <div class="content">
+        <div class="ui secondary menu">
+          <a class="active item">
+            Bets
+          </a>
+          <a class="item">
+            <i class="icon comments"></i> Comments
+          </a>
+          <div class="right menu">
+
+            {{#ui-popup hoverable="true"}}
+              <button class="ui button basic small">Make your Bet</button>
+            {{/ui-popup}}
+
+            <div class="ui flowing popup bottom left transition hidden">
+
+              <p style="white-space:nowrap;">
+
+                <div class="ui input">
+                  <input type="number" class="ui fluid input new-bet__score new-bet__localteam_score">
+                </div>
+                <span class="versus">:</span>
+                <div class="ui input">
+                  <input type="number" class="ui fluid input new-bet__score new-bet__visitorteam_score">
+                </div>
+
+              </p>
+
+              <div class="ui button green fluid">Save</div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="content match__bets">
+
+        {{#if match.bets}}
+
+          <div class="ui middle horizontal relaxed list">
+
+            {{#each match.bets as |bet|}}
+
+              {{#user-bet data-title="bet.user.username" data-content="bet.user.points" data-variation="inverted mini" popup=""}}
+                {{bet.body}}
+              {{/user-bet}}
+
+            {{/each}}
+
+          </div>
+
+        {{else}}
+
+          <p>There are no Bets for this Match.</p>
+
+        {{/if}}
+
+      </div>
+
     </div>
 
   {{/each}}

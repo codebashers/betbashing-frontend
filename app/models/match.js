@@ -30,6 +30,10 @@ export default DS.Model.extend({
     async: true
   }),
 
+  bets: DS.hasMany('bet', {
+    async: true
+  }),
+
   matchday: DS.belongsTo('matchday', {
     async: true
   })
