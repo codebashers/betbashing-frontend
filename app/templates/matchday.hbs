@@ -11,7 +11,18 @@
     <span class="divider">/</span>
     <a class="section">2015/2016</a>
     <span class="divider">/</span>
-    <div class="active section">{{model.id}}</div>
+    <div class="active section">
+      <div class="ui inline dropdown">
+        <div class="text">Matchday {{model.id}}</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="header">Adjust time span</div>
+          <div class="active item" data-text="today">Today</div>
+          <div class="item" data-text="this week">This Week</div>
+          <div class="item" data-text="this month">This Month</div>
+        </div>
+      </div>
+    </div>
   </div>
 
 
@@ -28,8 +39,7 @@
           </div>
           <div class="score" style="text-align:center;">
             <span class="score {{if (not-eq match.match_status 'FT') 'live'}}">
-
-              {{match.match_localteam_score}} <span class="dots">:</span> {{match.match_visitorteam_score}}
+              <input type="number" name="localteam_score"> <span class="dots">:</span> <input type="number" name="visitorteam_score">
             </span>
           </div>
           <div class="">
@@ -40,7 +50,39 @@
 
       </div>
 
-      <div class="content match-events">
+      <div class="content" style="text-align:center;">
+
+        {{#if match.bets}}
+
+          <div class="ui small horizontal list">
+
+            {{#each match.bets as |bet|}}
+
+              <div class="item bet {{bet.bet_state}}">
+                <img class="ui avatar image" src="/avatars/{{bet.user.id}}.jpg">
+                <div class="content">
+                  <div class="header">{{bet.bet_localteam_score}} : {{bet.bet_visitorteam_score}}</div>
+                </div>
+              </div>
+
+              <div class="ui flowing small popup bottom left transition">
+                <a href=""><b>{{bet.user.username}}</b> </a>
+                <i class="star icon"></i>{{bet.user.points}}
+              </div>
+
+            {{/each}}
+
+          </div>
+
+        {{else}}
+
+          <p>There are no Bets for this Match.</p>
+
+        {{/if}}
+
+      </div>
+
+      {{!-- <div class="content match-events">
 
         {{#each match.events as |event|}}
           <div class="flex-container">
@@ -82,67 +124,7 @@
           </div>
         {{/if}}
 
-      </div>
-
-      <div class="content">
-        <div class="ui secondary menu">
-          <a class="active item">
-            Bets
-          </a>
-          <a class="item">
-            <i class="icon comments"></i> Comments
-          </a>
-          <div class="right menu">
-
-            {{#ui-popup hoverable="true"}}
-              <button class="ui button basic small">Make your Bet</button>
-            {{/ui-popup}}
-
-            <div class="ui flowing popup bottom left transition hidden">
-
-              <p style="white-space:nowrap;">
-
-                <div class="ui input">
-                  <input type="number" class="ui fluid input new-bet__score new-bet__localteam_score">
-                </div>
-                <span class="versus">:</span>
-                <div class="ui input">
-                  <input type="number" class="ui fluid input new-bet__score new-bet__visitorteam_score">
-                </div>
-
-              </p>
-
-              <div class="ui button green fluid">Save</div>
-
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="content match__bets">
-
-        {{#if match.bets}}
-
-          <div class="ui middle horizontal relaxed list">
-
-            {{#each match.bets as |bet|}}
-
-              {{#user-bet data-title="bet.user.username" data-content="bet.user.points" data-variation="inverted mini" popup=""}}
-                {{bet.body}}
-              {{/user-bet}}
-
-            {{/each}}
-
-          </div>
-
-        {{else}}
-
-          <p>There are no Bets for this Match.</p>
-
-        {{/if}}
-
-      </div>
+      </div> --}}
 
     </div>
 

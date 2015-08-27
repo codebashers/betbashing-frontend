@@ -10,7 +10,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 body {
-padding: 25px;
+padding: 50px;
 }
 
 
@@ -21,6 +21,7 @@ margin: 0 auto;
 
 .card.match {
 width: 100%;
+margin-bottom: 50px !important;
 }
 
 .match__header {
@@ -77,8 +78,8 @@ font-size: 16px;
 
 
 input.new-bet__score {
-width: 50px;
-font-size: 22px !important;
+width: 40px;
+font-size: 18px !important;
 text-align: center !important;
 padding-left: 0 !important;
 padding-right: 0 !important;
@@ -92,9 +93,10 @@ margin-top: -20px;
 display: inline-block;
 }
 
+
+
 .bet.hit .avatar {
-box-shadow: 0 0 0 2px #44AF16;
-border: 2px solid #fff;
+box-shadow: 0 0 0 2px #fff, 0 0 0 4px #44AF16;
 }
 
 .bet.hit .header {
@@ -102,18 +104,18 @@ color: #44AF16 !important;
 }
 
 .bet.tendency .avatar {
-box-shadow: 0 0 0 2px #E29A09;
-border: 2px solid #fff;
+box-shadow: 0 0 0 2px #fff, 0 0 0 4px orange;
 }
 
 .bet.tendency .header {
-color: #E29A09 !important;
+color: orange !important;
 }
 
-.bet.lost .avatar {
+.bet.fail .avatar {
+box-shadow: 0 0 0 2px #fff, 0 0 0 4px #ccc;
 }
 
-.bet.lost .header {
+.bet.fail .header {
 color: #999 !important;
 }
 
@@ -138,7 +140,7 @@ white-space: nowrap;
 }
 
 .flex-container > div.score {
-max-width: 80px;
+max-width: 110px;
 }
 
 .match-events {
@@ -241,6 +243,15 @@ color: #aaa;
 margin: 0 3px;
 }
 
+
+input[name="localteam_score"],
+input[name="visitorteam_score"] {
+width: 24px;
+padding-left: 0;
+padding-right: 0;
+text-align: center;
+border: 0;
+}
 
 
 /* Chrome, Safari, Opera */

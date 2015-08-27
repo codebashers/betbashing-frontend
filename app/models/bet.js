@@ -14,6 +14,23 @@ export default DS.Model.extend({
 
   user: DS.belongsTo('user', {
     async: true
-  })
+  }),
+
+  bet_state: function () {
+    var state;
+    if (this.get('bet_localteam_score') === this.get('match.match_localteam_score') && this.get('bet_visitorteam_score') === this.get('match.match_visitorteam_score')) {
+      state = 'hit';
+    }
+    else if(
+        (this.get('bet_localteam_score') < this.get('bet_visitorteam_score') && this.get('match.match_localteam_score') < this.get('match.match_visitorteam_score')) ||
+        (this.get('bet_localteam_score') > this.get('bet_visitorteam_score') && this.get('match.match_localteam_score') > this.get('match.match_visitorteam_score')) ||
+        (this.get('bet_localteam_score') === this.get('bet_visitorteam_score') && this.get('match.match_localteam_score') === this.get('match.match_visitorteam_score'))
+      ) {
+      state = 'tendency';
+    } else {
+      state = 'fail';
+    }
+    return state;
+  }.property('bet_localteam_score', 'bet_visitorteam_score', 'match.match_localteam_score', 'match.match_visitorteam_score')
 
 });

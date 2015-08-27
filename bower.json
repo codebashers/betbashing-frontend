@@ -14,5 +14,8 @@
     "qunit": "~1.18.0",
     "blanket": "~1.1.5",
     "semantic-ui": "~2.0.8"
+  },
+  "devDependencies": {
+    "semantic": "semantic-ui#~2.0.8"
   }
 }
